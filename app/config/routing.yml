@@ -1,0 +1,5 @@
+need_you:
+    resource: "@NeedYouBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
