@@ -2,15 +2,19 @@
 	background-color: red;
 }
 
-.center{
-	margin-left: 13em;	
+.head{
 	margin-top: -1em;
-	width: 40em;
+	width: 50em;
 	height: 2.5em;
 	border: solid 0.05em blue;
 	background: url('http://localhost/bundles/needyou/images/zholak.jpg' );
 	border-radius: 0px 0px 0.4em 0.4em;
 	position: relative;
+}
+
+.center{
+	margin-left: 13em;
+	
 }
 
 .menuText{
