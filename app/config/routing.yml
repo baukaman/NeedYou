@@ -1,0 +1,10 @@
+optimus_user:
+    resource: "@OptimusUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+optimus_default:
+    resource: "@OptimusDefaultBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
