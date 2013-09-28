@@ -1,0 +1,10 @@
+{% if is_granted('ROLE_USER') %}
+   Моя страница
+   Мои Фотогафии
+   Мои Аудиозаписи
+   Мои Сообщения
+   Мои Группы
+   Мои Настройки
+{% else %}
+   {% include 'OptimusDefaultBundle:Default:login.html.twig' %}
+{% endif%}

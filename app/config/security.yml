@@ -22,6 +22,16 @@ security:
             pattern:  ^/login$
             security: false
 
+        restricted_area:
+            pattern: ^/feed
+            form_login:
+                check_path: _security_check
+                login_path: _login
+            logout:
+                path: _my_security_logout
+                target: _test
+            context: default
+
         secured_area:
             pattern:    ^/
             form_login:
@@ -30,9 +40,10 @@ security:
             logout:
                 path: _my_security_logout
                 target: _test
-            #anonymous: ~
+            anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
+            context: default
 
         #user_page:
         #    pattern:  ^/opt/

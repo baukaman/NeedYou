@@ -9,12 +9,24 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class DefaultController extends Controller
 {
-
     /**
-     * @Route("/feed/", name="_feed")
+     * @Route("/", name="_index")
      * @Template()
      */
-    public function indexAction()
+    public function indexAction(){
+
+        $user = $this->getUser();
+        if($user){
+            return $this->redirect($this->generateUrl('_feed'));
+        }
+          return array();
+    }
+
+    /**
+     * @Route("/feed", name="_feed")
+     * @Template()
+     */
+    public function feedAction()
     {
     	$user = $this->getUser();
     	$t = "anonym";
