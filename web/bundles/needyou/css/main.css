@@ -19,7 +19,6 @@
 
 .menuText{
     color: white;
-    text-decoration: bold;
 }
 
 .selectable{
@@ -30,6 +29,13 @@
 
 .selectable:hover{
 	background-color: #405F82;
+}
+
+.hrefMenu:hover, .hrefMenu:link, .hrefMenu:active, .hrefMenu:visited {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 11pt;
+    color: #EEEEFF;
 }
 
 

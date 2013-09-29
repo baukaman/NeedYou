@@ -36,4 +36,15 @@ class DefaultController extends Controller
     	}
         return array('name' => $t);
     }
+
+    /**
+     * @Route("/leftBar", name="_leftBar")
+     * @Template()
+     */
+    public function leftBarAction()
+    {
+
+      return array("last_username"=>"","alone"=>"true");
+    }
+
 }

@@ -1,5 +1,4 @@
 .idea
-/web/bundles/
 /app/bootstrap.php.cache
 /app/cache/*
 /app/config/parameters.yml
