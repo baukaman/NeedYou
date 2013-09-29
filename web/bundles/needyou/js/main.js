@@ -5,6 +5,12 @@ $(document).ready(function(){
             alert('ok you pressed');
             event.preventDefault();
        });
-       //$('#loh').submit();
+       $("#login").each(function(){
+           $('input').keypress(function(e){
+               if(e.which ==10 || e.which==13){
+                   this.form.submit();
+               }
+           });
+       });
     });
 })(jQuery);
