@@ -29,12 +29,18 @@ class DefaultController extends Controller
     public function feedAction()
     {
     	$user = $this->getUser();
-    	$t = "anonym";
+    	//$t = "anonym";
 
-    	if($user){
-    	  $t = $user->getUsername();
-    	}
-        return array('name' => $t);
+        if($this->get('security.context')->isGranted('ROLE_USER')){
+            return array('name'=>$user->getUsername());
+        }
+
+        return $this->redirect($this->generateUrl('_login'));
+
+//    	if($user){
+//    	  $t = $user->getUsername();
+//    	}
+//        return array('name' => $t);
     }
 
     /**
