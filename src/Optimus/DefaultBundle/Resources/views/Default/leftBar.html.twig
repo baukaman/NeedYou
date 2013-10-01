@@ -1,10 +1,13 @@
 {% if is_granted('ROLE_USER') %}
-   Моя страница<br/>
-   Мои Фотогафии<br/>
-   Мои Аудиозаписи<br/>
-   Мои Сообщения<br/>
-   Мои Группы<br/>
-   Мои Настройки<br/>
+<div class="content">
+   <ul>
+            <a href="#"><li><span id="lmenu">Страница</span></li></a>
+            <a href="#"><li><span id="lmenu">Сообщения</span></li></a>
+            <a href="#"><li><span id="lmenu">Фото</span></li></a>
+            <a href="#"><li><span id="lmenu">Друзья</span></li></a>
+            <a href="#"><li><span id="lmenu">Новости</span></li></a>
+   <ul>
+</div>
 {% else %}
    {% include 'OptimusDefaultBundle:Default:login.html.twig' %}
 {% endif%}

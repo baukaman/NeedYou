@@ -2,7 +2,6 @@
 <link rel="stylesheet" href="{{ asset( 'bundles/needyou/css/main.css' ) }}" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="{{ asset( 'bundles/needyou/js/main.js' ) }}" ></script>
-
 <body>
 <div class="center"> 
   <div class="head"  >
@@ -11,11 +10,11 @@
     </div>
     <div style="float: left; height:1em; margin-top:0.5em; position: relative;">
        <input type="text" name="search" style="top: 0.18em; left: 1em; position: relative; height: 1.75em;"/>
-       <div style="top: 0.2em; left: -0.35em; position:absolute;">
-          <img src="{{asset('bundles/needyou/images/lupa.png')}}" style="height:1.35em;" />
+       <div style="top: 0.21em; left: 0.9em; position:absolute;">
+          <img src="{{asset('bundles/needyou/images/lupa.png')}}" style="height:1.85em;" />
        </div>
-       <div style="float: left; height: 1em; top: 0.2em; left: 9.3em; position: absolute; ">
-          <img src="{{asset('bundles/needyou/images/user.png')}}" style="height: 1.35em" />
+       <div style="float: left; height: 1em; top: 0.22em; left: 12.6em; position: absolute; ">
+          <img src="{{asset('bundles/needyou/images/user.png')}}" style="height: 1.85em" />
        </div>
        <!-- <div style="float: left; height: 2em; top: 2em; left: 20em;  position: absolute; ">
          <img src="{{asset('bundles/needyou/images/lupa.png')}}" height="3em" />
@@ -23,16 +22,16 @@
        <div style="left: 16em;" class="menuText selectable" >
           <a href="#" class="hrefMenu">люди</a>
        </div>
-       <div style="left: 19em;" class="menuText selectable">
+       <div style="left: 20em;" class="menuText selectable">
           <a href="#" class="hrefMenu">сообщества</a>
        </div>
-       <div style="left: 25em;" class="menuText selectable">
+       <div style="left: 28em;" class="menuText selectable">
           <a href="#" class="hrefMenu">игры</a>
        </div>
-       <div style="left: 28em;" class="menuText selectable">
+       <div style="left: 32em;" class="menuText selectable">
           <a href="#" class="hrefMenu">музыка</a>
        </div>
-        <div style="left: 32em;" class="menuText selectable">
+        <div style="left: 37.5em;" class="menuText selectable">
           <a href="{{ path('_my_security_logout') }}" class="hrefMenu">выйти</a>
        </div>
     </div>
@@ -41,17 +40,32 @@
     <div style="float:left">
   {%   include 'OptimusDefaultBundle:Default:leftBar.html.twig' with {'last_username':''} %}
    </div>
-    <div style="float: left; border: 0.1em solid black; width: 40em; margin-top: 1em;">
+    <!--<div style="float: left; border: 0.1em solid black; width: 40em; margin-top: 1em;">
          sdf
-    </div>
-    <div style="clear:both;"></div>
+    </div>-->
+<div class="main-content">
+  <div class="avatar-im">
+    <img src="{{asset('bundles/needyou/images/fot.jpg')}}" style="height:20em; width:15em;">
+  </div>
+
+  Optimus Group Incorporation
+
+    <p>Default </p>
+    <p>Default </p>
+    <p>Default </p>
+    <p>Default </p>
+    <p>Default </p>
+    <p>Default </p>
+    <p>Default </p>
+
+    <p>Default </p><p>Default </p>
+    <p>Default </p>
+
+  {% block content %}
+
+    
+  {% endblock %}
 </div>
 
-Optimus Group Incorporation
-
-{% block content %}
-
-  <p>Default </p>
-
-{% endblock %}
-</body>
+</div>
+</div>
