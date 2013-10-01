@@ -53,4 +53,15 @@ class DefaultController extends Controller
       return array("last_username"=>"","alone"=>"true");
     }
 
+    /**
+     * @Route("/register",name="_register")
+     * @Template()
+     */
+    public function registerAction(){
+        if($this->get('security.context')->isGranted('ROLE_USER'))
+            return $this->redirect($this->generateUrl('_feed'));
+
+        return array();
+    }
+
 }

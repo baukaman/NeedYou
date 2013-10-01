@@ -64,7 +64,7 @@ class User implements AdvancedUserInterface, \Serializable
 
 
     /**
-     * @ORM\ManyToMany(targetEntity="Role", inversedBy="users")
+     * @ORM\ManyToMany(targetEntity="Role", inversedBy="users",cascade={"persist"})
      */
     private $roles;
 
@@ -92,7 +92,7 @@ class User implements AdvancedUserInterface, \Serializable
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, unique=true)
      */
     private $email;
 
