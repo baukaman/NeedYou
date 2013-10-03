@@ -12,5 +12,15 @@ $(document).ready(function(){
                }
            });
        });
+        $('#button').on('click',
+            function(){
+                aButtonPressed();
+            }
+
+        );
+        $('#friends').keydown(function(){
+                showFriends();
+        });
+
     });
 })(jQuery);

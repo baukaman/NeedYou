@@ -16,6 +16,7 @@ class User implements AdvancedUserInterface, \Serializable
 {
     function __construct() {
         $this->roles = new ArrayCollection();
+        $this->friends = new ArrayCollection();
     }
 
     /**
@@ -61,6 +62,21 @@ class User implements AdvancedUserInterface, \Serializable
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Address")
+     */
+    private $address;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="User")
+     */
+    private $friends;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="User", inversedBy="friendsWithMe")
+     */
 
 
     /**
@@ -318,4 +334,24 @@ class User implements AdvancedUserInterface, \Serializable
     {
         $this->roles->removeElement($roles);
     }
+
+    /**
+     * @return mixed
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFriends()
+    {
+        return $this->friends;
+    }
+
+
+
+
 }

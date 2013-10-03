@@ -1,0 +1,49 @@
+<head>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="{{ asset( 'bundles/needyou/js/main.js' ) }}" ></script>
+  <script>
+      function showFriends(){
+          $.post('{{path('_list_friends')}}',
+                  {name: $('#friends').val()},
+                  function(response){
+                      if(response.code == 100 && response.success == 'true'){//dummy check
+                          //alert('data come: ' + response.data);
+                          var arr = response.data;
+                          if(arr.length == 1) $('#z').show();
+                          else $('#z').hide();
+                          var x = '';
+                          $('#y').text('');
+                          for(var i=0;i<arr.length;i++)
+                            $('#y').append(arr[i]+"<input type='hidden' id='friend_id' value='"+arr[i]+"' /><br/>");
+                      }
+                      else{
+                          alert('not logged in !!!');
+                      }
+
+                  }, "json");
+      }
+      function addFriend(){
+
+          var t= $('#friend_id').val();
+          alert(t);
+
+      }
+  </script>
+
+</head>
+
+<body onload="showFriends();">
+{% for user in users %}
+    {{ user.username }}
+     {%  for role in user.roles %}
+       {{ role.role }}
+      {% endfor %}
+   <br/>
+{% endfor %}
+
+<input id="friends" type="text" />
+<div id="x" ><p id="y"> </p></div>
+<button id="z" onclick="addFriend();">add</button>
+
+
+</body>

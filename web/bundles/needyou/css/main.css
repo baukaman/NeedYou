@@ -62,7 +62,7 @@ a.button:hover{background:#717375;}
 .content ul li:hover{background:#c6d7e4;}
 
 .main-content {
-	float: right;	
+	float: left; 
 	position: relative;
 	border-left: 0.17em solid #e0edf7;
 	border-right: 0.17em solid #e0edf7;
