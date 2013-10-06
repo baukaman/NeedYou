@@ -32,6 +32,7 @@ class AuthController extends Controller{
         $user->setPassword(sha1($request->get('password')));
         $user->setEmail($request->get('email'));
         $user->setSalt("");
+        $user->setPic("default");
         $role = $this->getDoctrine()->getManager()->getRepository("OptimusUserBundle:Role")->find(1);
         $user->addRole($role);
         $user->setIsActive(true);

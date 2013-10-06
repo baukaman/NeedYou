@@ -65,6 +65,14 @@ class User implements AdvancedUserInterface, \Serializable
 
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="pic", type="string", length=255)
+     */
+    private $pic;
+
+
+    /**
      * @ORM\ManyToOne(targetEntity="Address")
      */
     private $address;
@@ -351,7 +359,20 @@ class User implements AdvancedUserInterface, \Serializable
         return $this->friends;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getPic()
+    {
+        return $this->pic;
+    }
 
-
+    /**
+     * @param mixed $pic
+     */
+    public function setPic($pic)
+    {
+        $this->pic = $pic;
+    }
 
 }

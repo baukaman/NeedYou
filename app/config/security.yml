@@ -37,9 +37,11 @@ security:
             form_login:
                 check_path: _security_check
                 login_path: _login
+                always_use_default_target_path: true
+                default_target_path: _feed
             logout:
                 path: _my_security_logout
-                target: _test
+                target: _index
             anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"

@@ -6,6 +6,7 @@
           $.post('{{path('_list_friends')}}',
                   {name: $('#friends').val()},
                   function(response){
+                      alert(response);
                       if(response.code == 100 && response.success == 'true'){//dummy check
                           //alert('data come: ' + response.data);
                           var arr = response.data;
@@ -35,6 +36,7 @@
 <body onload="showFriends();">
 {% for user in users %}
     {{ user.username }}
+    {{ user.pic }}
      {%  for role in user.roles %}
        {{ role.role }}
       {% endfor %}

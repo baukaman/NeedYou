@@ -76,4 +76,30 @@ class TestController extends Controller{
 
     }
 
+    /**
+     * @Route("/test_upload", name="_test_upload")
+     * @Template()
+     */
+    public function uploadTestAction(){
+        return array();
+    }
+
+    /**
+     * @Route("/upload", name="_upload")
+     */
+    public function uploadAction(){
+
+        //$photo = $this->get('request')->get('data');
+
+        /*foreach($_FILES['image']['tmp_name'] as $key => $tmp_name ){
+        }*/
+
+        move_uploaded_file($_FILES['image']['tmp_name'],'C:\\have fun\\'.$_FILES['image']['name']);
+
+        $response = array('code'=>100,"sucess"=>"true","data"=>$_FILES['image']['tmp_name']);
+
+        //$response = array('code'=>100,"sucess"=>"true","data"=>'sdf');
+        return new Response(json_encode($response));
+    }
+
 }

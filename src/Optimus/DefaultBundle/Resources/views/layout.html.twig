@@ -3,11 +3,33 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="{{ asset( 'bundles/needyou/js/main.js' ) }}" ></script>
 <body>
+
+<div id="over_x" style="display: none; position: fixed; width: 1000em; margin-left: -10em; height: 1000em; background-color: black; opacity: 0.7; z-index: 1000">
+</div>
+<div id="over_y" style="position: fixed; z-index: 1000; display: none; margin-left: 36em; margin-top: 15em; background-color: white; width: 50em; height: 15em; opacity: 1; padding: 2em 2em 2em 2em;">
+   <div >
+     <a id="photo_close" style="float: right; color: #2B587A; text-decoration: none">Закрыть</a>
+     <div style="font-size: 15px; font-weight: bold; color: #45688E; font-family: tahoma">Загрузка новой фотографии</div>
+     <div style="font-family: tahoma; line-height: 150%;">
+         Друзьям будет проще узнать Вас, если Вы загрузите свою настоящую фотографию.
+         Вы можете загрузить изображение в формате JPG, GIF или PNG.
+     </div>
+       <form id="myform" enctype="multipart/form-data">
+      <div style="margin-left: 17em; margin-top: 3em;;">
+          <button class="mybutt" onclick="this.parentNode.nextSibling.click()">Выбрать файл</button>
+      </div><input id="image" accept="image/*" name="image" type="file" style="visibility: hidden;" class="upload" />
+       </form>
+
+   </div>
+</div>
+
 <div class="center"> 
   <div class="head"  >
     <div style="float:left">
   	 <img src="{{asset('bundles/needyou/images/logo.png')}}"> 
     </div>
+
+    {% if app.user.pic is defined %}
     <div style="float: left; height:1em; margin-top:0.5em; position: relative;">
        <input type="text" name="search" style="top: 0.18em; left: 1em; position: relative; height: 1.75em;"/>
        <div style="top: 0.21em; left: 0.9em; position:absolute;">
@@ -35,6 +57,7 @@
           <a href="{{ path('_my_security_logout') }}" class="hrefMenu">выйти</a>
        </div>
     </div>
+      {% endif %}
   </div>
   <div style="clear:both;"></div>
     <div style="float:left">
@@ -44,28 +67,40 @@
          sdf
     </div>-->
 <div class="main-content">
-  <div class="avatar-im">
-    <img src="{{asset('bundles/needyou/images/fot.jpg')}}" style="height:20em; width:15em;">
-  </div>
+   {% if app.user is null %}
+       {% include 'OptimusDefaultBundle:Default:default.html.twig' %}
+    {% else %}
+      <div id="avatar-container" style="position: relative">
+          <div class="avatar-im">
+            {% if app.user is null or app.user.pic == "default" %}
+                <img src="{{asset('bundles/needyou/images/camera_a.gif')}}" style="height:15em; width:15em;">
+            {% else %}
+            <img src="{{asset('bundles/needyou/images/fot.jpg')}}" style="height:20em; width:15em;">
+            {% endif %}
+          </div>
+          <div style="position: absolute; left: 5em; top: 12em;"><a id="photo" >Сменить фото</a> </div>
+      </div>
+    {% endif %}
+    {#<div>#}
 
-  Optimus Group Incorporation
+  {#Optimus Group Incorporation#}
 
-    <p>Default </p>
-    <p>Default </p>
-    <p>Default </p>
-    <p>Default </p>
-    <p>Default </p>
-    <p>Default </p>
-    <p>Default </p>
+    {#<p>Default </p>#}
+    {#<p>Default </p>#}
+    {#<p>Default </p>#}
+    {#<p>Default </p>#}
+    {#<p>Default </p>#}
+    {#<p>Default </p>#}
+    {#<p>Default </p>#}
 
-    <p>Default </p><p>Default </p>
-    <p>Default </p>
-
+    {#<p>Default </p><p>Default </p>#}
+    {#<p>Default </p>#}
+    {#</div>#}
   {% block content %}
 
     
   {% endblock %}
+ </div>
 </div>
 
-</div>
-</div>
+</body>
