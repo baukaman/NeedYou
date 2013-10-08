@@ -8,13 +8,9 @@
     <parameters>
         <parameter key="optimus_default.example.class">Optimus\DefaultBundle\Example</parameter>
     </parameters>
-
+    -->
     <services>
-        <service id="optimus_default.example" class="%optimus_default.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="Utils" class="Optimus\DefaultBundle\Utils\Utils">
         </service>
     </services>
-    -->
 </container>

@@ -22,7 +22,7 @@ class TestController extends Controller{
      * @Route("/address", name="_address")
      */
     public function addressAction(){
-       return new Response("ok address");
+       return new Response("ok address ".$str);
     }
 
     /**
@@ -82,25 +82,6 @@ class TestController extends Controller{
      */
     public function uploadTestAction(){
         return array();
-    }
-
-    /**
-     * @Route("/upload", name="_upload")
-     */
-    public function uploadAction(){
-
-        //$photo = $this->get('request')->get('data');
-
-        /*foreach($_FILES['image']['tmp_name'] as $key => $tmp_name ){
-        }*/
-        move_uploaded_file($_FILES['userfile']['tmp_name'],'C:\\have fun\\'.$_FILES['userfile']['name']);
-
-
-
-        $response = array('code'=>100,"sucess"=>"true","data"=>$_FILES['userfile']['tmp_name']);
-
-        //$response = array('code'=>100,"sucess"=>"true","data"=>'sdf');
-        return new Response(json_encode($response));
     }
 
 }
