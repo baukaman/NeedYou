@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
 
-    alert($('#image').val());
+    //alert($('#image').val());
        /*$("#login").submit(function(event){
            this.form.submit();
             event.preventDefault();
@@ -61,8 +61,8 @@ $(document).ready(function(){
 //
 
         $('#image').on('change',function(){
-             alert('ok');
-            var form = new FormData($('#myform')[0]);
+             doLoad();
+            /*var form = new FormData($('#myform')[0]);
             //alert($("#myform")[2]);
             $.ajax({
                 url: '/upload',
@@ -76,7 +76,7 @@ $(document).ready(function(){
                 cache: false,
                 contentType: false,
                 processData: false
-            });
+            });*/
         });
 
 });

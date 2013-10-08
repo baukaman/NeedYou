@@ -1,0 +1,24 @@
+<html>
+
+
+<script>
+     var form = new FormData(document.getElementById("myform"));
+     form.append("username","Baukaman");
+     var oReq = new XMLHttpRequest(); 
+     oReq.open("POST","upload2.php",true);
+     oReq.onload=function(oEvent){
+       alert(oEvent.target.responseText);
+     }
+     oReq.send(form);
+</script>
+
+
+<body>
+
+ <form name="myform">
+ </form>
+  
+
+</body>
+
+</html>

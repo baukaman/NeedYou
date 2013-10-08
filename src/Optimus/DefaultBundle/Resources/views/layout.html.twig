@@ -2,11 +2,45 @@
 <link rel="stylesheet" href="{{ asset( 'bundles/needyou/css/main.css' ) }}" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="{{ asset( 'bundles/needyou/js/main.js' ) }}" ></script>
+<script>
+   function doLoad(){
+       document.getElementById("mybutt").style.display='none';
+       var form = new FormData(document.getElementById("upload_form"));
+       var oFile = document.getElementById('image').files[0];
+       var oImage = document.getElementById('preview');
+       var oReader = new FileReader();
+       oReader.onload = function(e){
+           // e.target.result contains the DataURL which we will use as a source of the image
+           oImage.src = e.target.result;
+
+           oImage.onload = function () { // binding onload event
+               // we are going to display some custom image information here
+               sResultFileSize = bytesToSize(oFile.size);
+               document.getElementById('fileinfo').style.display = 'block';
+               document.getElementById('filename').innerHTML = 'Name: ' + oFile.name;
+               document.getElementById('filesize').innerHTML = 'Size: ' + sResultFileSize;
+               document.getElementById('filetype').innerHTML = 'Type: ' + oFile.type;
+               document.getElementById('filedim').innerHTML = 'Dimension: ' + oImage.naturalWidth + ' x ' + oImage.naturalHeight;
+           };
+       };
+
+       oReader.readAsDataURL(oFile);
+       form.append("userfile",oFile);
+       var oReq = new XMLHttpRequest();
+       oReq.open("POST","/upload",true);
+       oReq.onload=function(oEvent){
+           //alert(oEvent.target.responseText);
+       }
+       oReq.send(form);
+
+   }
+</script>
 <body>
 
+<form id="upload_form" enctype="multipart/form-data" method="post" action="upload.php"></form>
 <div id="over_x" style="display: none; position: fixed; width: 1000em; margin-left: -10em; height: 1000em; background-color: black; opacity: 0.7; z-index: 1000">
 </div>
-<div id="over_y" style="position: fixed; z-index: 1000; display: none; margin-left: 36em; margin-top: 15em; background-color: white; width: 50em; height: 15em; opacity: 1; padding: 2em 2em 2em 2em;">
+<div id="over_y" style="position: fixed; z-index: 1000; display: none; margin-left: 36em; margin-top: 15em; background-color: white; width: 50em;  opacity: 1; padding: 2em 2em 2em 2em;">
    <div >
      <a id="photo_close" style="float: right; color: #2B587A; text-decoration: none">Закрыть</a>
      <div style="font-size: 15px; font-weight: bold; color: #45688E; font-family: tahoma">Загрузка новой фотографии</div>
@@ -14,12 +48,10 @@
          Друзьям будет проще узнать Вас, если Вы загрузите свою настоящую фотографию.
          Вы можете загрузить изображение в формате JPG, GIF или PNG.
      </div>
-       <form id="myform" enctype="multipart/form-data">
       <div style="margin-left: 17em; margin-top: 3em;;">
-          <button class="mybutt" onclick="this.parentNode.nextSibling.click()">Выбрать файл</button>
+          <button id="mybutt" class="mybutt" onclick="this.parentNode.nextSibling.click()">Выбрать файл</button>
       </div><input id="image" accept="image/*" name="image" type="file" style="visibility: hidden;" class="upload" />
-       </form>
-
+       <img id="preview" width="150px;"/>
    </div>
 </div>
 
