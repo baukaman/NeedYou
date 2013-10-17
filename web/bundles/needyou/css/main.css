@@ -19,10 +19,24 @@ h2{
 }
 
 #ts_input{
-    background: url("/bundles/needyou/images/lupa.png") no-repeat scroll 0px -10px rgba(0,0,0,0);
-    font-family: Tahoma;
-    padding: 3px 0px 0px 12px;
+    background: url("/bundles/needyou/images/lupa.gif") no-repeat scroll 2px 2px rgba(0,0,0,0);
+    font-family: Tahoma,Verdana,Arial,Sans-Serif,Lucida Sans;
+    font-size: 11px;
+    padding: 3px 41px 4px 25px;
     box-shadow: 0 1px 4px 0 #C0C4C9 inset;
+    border: 0 none;
+}
+
+#ts_wrap{
+    width: 170px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    background-image: -moz-linear-gradient(center top , #EFEFEF 0%, #FFFFFF 100%);
+    border-radius: 3px 3px 3px 3px;
+}
+
+#ts_content_wrap{
+
 }
 
 /*a{color: #2B587A;text-decoration: none;}
