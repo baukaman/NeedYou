@@ -49,18 +49,24 @@ class UserController extends Controller{
         $path = $this->get('Utils')->generateRandomString(2);
         $name = $this->get('Utils')->generateRandomString(7).$ext;
 
+        $saveAs = "/bundles/needyou/images/Impool/".$path;
         $path = "bundles\\needyou\\images\\Impool\\".$path;
+
 
         //mkdir('C:\\www\\web\\bundles\\needyou\\images\\Impool\\fuck');
         if(!file_exists($path))
           mkdir($path);
         move_uploaded_file($_FILES['userfile']['tmp_name'],$path."\\".$name);
 
+        $saveAs = $saveAs."/".$name;
+
 
         $response = array('code'=>100,"sucess"=>"true","data"=>$_FILES['userfile']['tmp_name']);
 
-        $user = $this->getUser();
-        $em = $this->getDoctrine()->getRepository("OptimusUserBundle:User");
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository("OptimusUserBundle:User")->find($this->getUser()->getId());
+        $user->setPic($saveAs);
+        $em->flush();
 
         //$response = array('code'=>100,"sucess"=>"true","data"=>'sdf');
         return new Response(json_encode($response));

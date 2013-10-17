@@ -32,7 +32,7 @@
             {% if app.user is null or app.user.pic == "default" %}
                 <img src="{{asset('bundles/needyou/images/camera_a.gif')}}" style="height:15em; width:15em;">
             {% else %}
-            <img src="{{asset('bundles/needyou/images/fot.jpg')}}" style="height:20em; width:15em;">
+            <img src="{{app.user.pic}}" style="height:20em; width:15em;">
             {% endif %}
           </div>
           <div style="position: absolute; left: 5em; top: 12em;"><a id="photo" class="hrefUnderlineOnHover" onclick="jau.toggleOverlay()">Сменить фото</a> </div>
