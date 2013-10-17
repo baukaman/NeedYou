@@ -8,7 +8,23 @@ h2{
     margin: 0px 0px 10px;
 }
 
+#avatar-container{
+    position: relative;
+    width: 15em;
+    margin-left: 1em;
+    margin-top: 1em;
+    float: left;
+}
 
+#counters-bar{
+    position: relative;
+    float: left;
+    font-size: 11px;
+    font-family: tahoma;
+    width: 100%;
+    padding-left: 1.5em;
+    color: #A3A3A3;  
+}
 
 #title{
     color:#607387;
@@ -48,8 +64,6 @@ a.button:hover{background:#717375;}
 */
 .avatar-im{
     width: 15em;
-    margin-left: 1em;
-    margin-top: 1em;
 }
 
 .bt_divs{
@@ -71,6 +85,24 @@ a.button:hover{background:#717375;}
         .content .post img{ float:left; padding:5px; border:1px solid #CCC; margin-right:1px;}
         .content .post p{color:#A3A3A3; font-style:italic;}
     .content .wrap-content{background-color:#FFF; border:1px solid #CCC; margin-top: 0px;}
+    .content ul a{
+        text-decoration: none;
+    }
+
+.edit-profile{
+    position: relative;
+    float: left;
+    font-size: 11px;
+    font-family: tahoma;
+    width: 100%;
+    padding-left: 1.5em;
+    color: #A3A3A3;
+}
+
+.edit-prof-under{
+    height: 1px;
+    width: 100%;
+}
 
 .head{
     margin-top: -1em;
@@ -94,6 +126,15 @@ a.button:hover{background:#717375;}
     cursor: pointer;
 }
 
+.info-bar{
+    position: relative;
+    height: 2.5em;
+    background-color: #e9edf1;
+    font-family: verdana;
+    font-size: 10.5px;
+    font-weight: bold;
+}
+
 .lg_txt{
     color:#45688F;
     font-family: Arial;
@@ -101,6 +142,15 @@ a.button:hover{background:#717375;}
     font-weight: bold;
     font-style: normal;
 }
+
+.long-left-menu{
+    position: relative;
+    width: 16em;
+    float: left;
+}
+    .long-left-menu a{
+        text-decoration: none;
+    }
 
 .main-content {
     float: left;
@@ -161,6 +211,14 @@ a.button:hover{background:#717375;}
     color: #e0edf7;
 }
 
+.name-bar{
+    position: relative;
+    float: left;
+    text-align: left;
+    padding-left: 0.8em;
+    color: #607387;
+}
+
 .selectable{
 	padding: 0.3em 0.3em 0.45em 0.3em;
 	position: absolute;
@@ -169,6 +227,14 @@ a.button:hover{background:#717375;}
 
 .selectable:hover{
 	background-color: #416389;
+}
+
+.status-bar{
+    position: relative;
+    float: right;
+    text-align: right;
+    padding-right:0.8em;
+    color: #AAB7C5;
 }
 
 .ts{
@@ -181,6 +247,13 @@ a.button:hover{background:#717375;}
     top: 0.3em;
 }
 
+.user-info-bar{
+    position: relative;
+    padding-left: 1em;
+    padding-top: 1em;
+    float: left;
+    width: 37em;
+}
 
 
 
