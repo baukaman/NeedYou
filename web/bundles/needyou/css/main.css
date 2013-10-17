@@ -52,7 +52,7 @@ h2{
 }
 
 #ts_content_wrap{
-
+   display: none;
 }
 
 /*a{color: #2B587A;text-decoration: none;}
