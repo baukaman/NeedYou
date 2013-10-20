@@ -45,6 +45,41 @@
           };
     }
 
+    $.tsSearchable = function(){
+        var tss = {
+            doWork: function(){
+
+                var text = $("#ts_input").val();
+                if(text=='') {
+                    $('#ts_content_wrap').css('display','none');
+                    return;
+                }
+                else{
+                    $('#val').html(text);
+                    $("#ts_content_wrap").css('display','block');
+                }
+            },
+            finishWork: function(a){
+                var target = $(event.target);
+
+                if (!target.attr('id') || !target.attr('id').match('ts_input')){
+                    $('#ts_content_wrap').css('display','none');
+                }
+            }
+        };
+
+        var n = $.documentClick.listeners.length;
+        $.documentClick.listeners[n] = tss.finishWork;
+
+        return {
+            toggleBar: tss.doWork
+        }
+    }
+
+    $.documentClick={
+        'listeners': []
+    }
+
     $(document).ready(function(){
 
        $("#login").submit(function(event){
@@ -60,6 +95,11 @@
        });
         $('#friends').keydown(function(){
                 showFriends();
+        });
+
+        $(document).click(function(event) {
+            for(var i = 0; i< $.documentClick.listeners.length;i++)
+                $.documentClick.listeners[i](event);
         });
         
 });

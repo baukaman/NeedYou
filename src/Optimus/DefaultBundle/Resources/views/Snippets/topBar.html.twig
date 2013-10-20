@@ -1,7 +1,7 @@
 <div style="float: left; height:1em; top:25%; position: relative;">
 
        <div id="ts_wrap">
-            <input id="ts_input" type="text" autocomplete="off" class="text"/>
+            <input id="ts_input" type="text" onmousedown="event.cancelBubble = true" class="text"  onkeyup="tss.toggleBar();" onclick="tss.toggleBar();" />
        </div>
        <!-- <div style="float: left; height: 2em; top: 2em; left: 20em;  position: absolute; ">
          <img src="{{asset('bundles/needyou/images/lupa.png')}}" height="3em" />
@@ -27,6 +27,6 @@
           <a href="{{ path('_my_security_logout') }}" class="hrefMenu">выйти</a>
        </div>
 </div>
-<div id="ts_content_wrap" style="width: 170px; height: 1500px; background-color: #FFFFFF; z-index: 1000; position: relative; left: 180px; top: 50px; box-shadow: 0 0 6px #999999;">
-    sdf
+<div id="ts_content_wrap" style="">
+    <div id="val" style="position: absolute;"></div>
 </div>

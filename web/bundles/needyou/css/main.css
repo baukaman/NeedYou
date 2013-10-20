@@ -35,7 +35,17 @@ h2{
 }
 
 #ts_content_wrap{
-   display: none;
+    background-color: #FFFFFF;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 0 6px #999999;
+    display: none;
+    height: 400px;
+    left: 180px;
+    position: relative;
+    top: 50px;
+    width: 250px;
+    z-index: 1000;
+
 }
 
 #ts_input{
@@ -43,10 +53,11 @@ h2{
     font-family: Tahoma,Verdana,Arial,Sans-Serif,Lucida Sans;
     font-size: 11px;
     padding: 3px 41px 4px 25px;
-    box-shadow: 0 1px 4px 0 #C0C4C9 inset;
+    box-shadow: 0px 2px 9px 0px #C0C4C9 inset;
     border: 0 none;
     margin: 0px;
     height: 25px;
+    outline: 0;
 }
 
 #ts_wrap{

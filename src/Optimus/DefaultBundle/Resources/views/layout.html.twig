@@ -4,6 +4,7 @@
 <script type="text/javascript" src="{{ asset( 'bundles/needyou/js/main.js' ) }}" ></script>
 <script>
     var jau = jQuery.jAvatarUploadable();
+    var tss = jQuery.tsSearchable();
 </script>
 <body>
 
@@ -24,14 +25,16 @@
    </div>
     
 <div class="main-content">
-  <div class="info-bar">
-    <div class="name-bar">    
-      Bauyrzhan Makhambetov
-    </div>
-    <div class="status-bar">
-      Online
-    </div>
-  </div>
+   {% if app.user is not null %}
+      <div class="info-bar">
+        <div class="name-bar">
+          {{ app.user.username }}
+        </div>
+        <div class="status-bar">
+          Online
+        </div>
+      </div>
+    {% endif %}
     {% if app.user is null %}
        {% include 'OptimusDefaultBundle:Default:default.html.twig' %}
     {% else %}
