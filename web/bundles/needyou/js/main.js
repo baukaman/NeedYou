@@ -59,12 +59,21 @@
                     $("#ts_content_wrap").css('display','block');
                 }
             },
-            finishWork: function(a){
+            finishWork: function(event){
                 var target = $(event.target);
 
                 if (!target.attr('id') || !target.attr('id').match('ts_input')){
                     $('#ts_content_wrap').css('display','none');
                 }
+            },
+            isActive: function(a,b,c){
+               var id = a.id;
+               $('#'+id).addClass('active');
+            },
+            isNotActive: function(a){
+                var id = a.id;
+                $('#'+id).removeClass('active');
+
             }
         };
 
@@ -72,7 +81,9 @@
         $.documentClick.listeners[n] = tss.finishWork;
 
         return {
-            toggleBar: tss.doWork
+            toggleBar: tss.doWork,
+            isActive: tss.isActive,
+            deselect: tss.isNotActive
         }
     }
 
