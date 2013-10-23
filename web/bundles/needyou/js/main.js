@@ -48,14 +48,31 @@
     $.tsSearchable = function(){
         var tss = {
             doWork: function(){
-
                 var text = $("#ts_input").val();
                 if(text=='') {
                     $('#ts_content_wrap').css('display','none');
                     return;
                 }
                 else{
-                    $('#val').html(text);
+                    $.post('/ts_work',{txt:text},function(response){
+                        var users = response.names;
+                        var photos = response.photos;
+
+                        var t = '';
+
+                        for(var i=0;i<photos.length;i++)
+                        if(photos[i]=='default')
+                            photos[i] = '/bundles/needyou/images/camera_a.gif';
+
+                        for(var i=0;i<photos.length;i++){
+                        t = t+ '<a href=\"sdf\"><div  class=\"ts_content\" id=\"contact_'+i+'\" onmouseover = \"tss.isActive(this,this,this);\" onmouseout=\"tss.deselect(this)\">' +
+                            '<span class=\"ts_contact_photo fl_l\"><img src=\"'+photos[i]+'\" /></span>' +
+                            '<span class=\"ts_contact_name fl_l\">'+users[i]+
+                            '<div class=\"ts_contact_info\"> 26 лет, Алматы </div>'+
+                            '</span></div></a>';
+                        }
+                        $('#ts_content_wrap').html(t);
+                    },"json");
                     $("#ts_content_wrap").css('display','block');
                 }
             },
@@ -74,6 +91,12 @@
                 var id = a.id;
                 $('#'+id).removeClass('active');
 
+            },
+            doRequest: function(){
+                $.post('/friends/list',{name:'Bauka'},function(response){
+                    alert(response.success);
+                },"json");
+
             }
         };
 
@@ -83,7 +106,8 @@
         return {
             toggleBar: tss.doWork,
             isActive: tss.isActive,
-            deselect: tss.isNotActive
+            deselect: tss.isNotActive,
+            doRequest: tss.doRequest
         }
     }
 

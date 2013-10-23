@@ -22,6 +22,7 @@ class TestController extends Controller{
      * @Route("/address", name="_address")
      */
     public function addressAction(){
+        $str = $this->get('UserRepository')->getText();
        return new Response("ok address ".$str);
     }
 

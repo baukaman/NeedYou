@@ -1,4 +1,12 @@
-body {background: #fff;color: #474747;font: 12px/25px Arial, Helvetica, sans-serif;} 
+body {background: #fff;color: #474747;font: 12px/25px Arial, Helvetica, sans-serif;}
+
+em.ts_contact_h1{
+   font-style: normal;
+   background: #f0f4f7;
+   border-bottom: 1px solid #1C5A88;
+   margin: 0px;
+   padding: 0px 1px;
+}
 
 h2{
     border-bottom: 1px solid #DAE1E8;
@@ -39,7 +47,7 @@ h2{
     border-radius: 3px 3px 3px 3px;
     box-shadow: 0 0 6px #999999;
     display: none;
-    height: 400px;
+    padding: 0px 0px 10px 0px;
     left: 180px;
     position: absolute;
     top: 50px;
@@ -121,6 +129,12 @@ a.button:hover{background:#717375;}
 .edit-prof-under{
     height: 1px;
     width: 100%;
+}
+
+
+
+.fl_l{
+    float: left;
 }
 
 .head{
@@ -269,6 +283,21 @@ a.button:hover{background:#717375;}
     top: 0.3em;
 }
 
+.ts_contact_info{
+    font-weight: normal;
+    color: #999;
+    padding-top: 6px;
+    font-size: 11px;
+}
+
+.ts_contact_name{
+    color: #45688e;
+    height: 30px;
+    padding: 2px 0 0 8px;
+    font-weight: bold;
+    position: relative;
+}
+
 .ts_contact_photo img{
     width: 40px;
     height: 40px;
@@ -278,6 +307,7 @@ a.button:hover{background:#717375;}
     padding: 4px 0 4px 6px;
     margin: 1px 0px 1px 0px;
     height: 41px;
+    line-height: 100%;
 }
 
 
