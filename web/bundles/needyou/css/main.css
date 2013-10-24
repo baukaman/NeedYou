@@ -1,4 +1,12 @@
-body {background: #fff;color: #474747;font: 12px/25px Arial, Helvetica, sans-serif;} 
+body {background: #fff;color: #474747;font: 12px/25px Arial, Helvetica, sans-serif;}
+
+em.ts_contact_h1{
+   font-style: normal;
+   background: #f0f4f7;
+   border-bottom: 1px solid #1C5A88;
+   margin: 0px;
+   padding: 0px 1px;
+}
 
 h2{
     border-bottom: 1px solid #DAE1E8;
@@ -42,13 +50,30 @@ h2{
     margin: 0em;
 }
 
+#ts_content_wrap{
+    background-color: #FFFFFF;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 0 6px #999999;
+    display: none;
+    padding: 0px 0px 10px 0px;
+    left: 180px;
+    position: absolute;
+    top: 50px;
+    width: 250px;
+    z-index: 1000;
+
+}
+
 #ts_input{
     background: url("/bundles/needyou/images/lupa.gif") no-repeat scroll 2px 2px rgba(0,0,0,0);
     font-family: Tahoma,Verdana,Arial,Sans-Serif,Lucida Sans;
     font-size: 11px;
     padding: 3px 41px 4px 25px;
-    box-shadow: 0 1px 4px 0 #C0C4C9 inset;
+    box-shadow: 0px 2px 9px 0px #C0C4C9 inset;
     border: 0 none;
+    margin: 0px;
+    height: 25px;
+    outline: 0;
 }
 
 #ts_wrap{
@@ -59,9 +84,7 @@ h2{
     border-radius: 3px 3px 3px 3px;
 }
 
-#ts_content_wrap{
-   display: none;
-}
+
 
 #user-city{
     position: relative;
@@ -83,6 +106,9 @@ a.button{cursor: pointer;color: #ffffff;line-height: 14px;font-family: Arial, He
 a.button {	display: inline-block;	text-decoration: none;	padding: 6px 12px 6px 12px;}
 a.button:hover{background:#717375;}
 */
+.active{
+    background: none repeat scroll 0 0 rgba(219,227,235,0.5);
+}
 
 .avatar-im{
     width: 15em;
@@ -159,6 +185,10 @@ display: none;
 .edit-prof-under{
     height: 1px;
     width: 100%;
+}
+
+.fl_l{
+    float: left;
 }
 
 .friends-bar{
@@ -300,6 +330,9 @@ display: none;
 
 .menuText{
     color: #e0edf7;
+    float: left;
+    margin-left: 1em;
+
 }
 
 .name-bar{
@@ -340,7 +373,7 @@ display: none;
 
 .selectable{
 	padding: 0.3em 0.3em 0.45em 0.3em;
-	position: absolute;
+	/*position: absolute;*/
 	top: 0em;
 }
 
@@ -372,6 +405,34 @@ display: none;
     left: 2em;
     top: 0.3em;
 }
+
+.ts_contact_info{
+    font-weight: normal;
+    color: #999;
+    padding-top: 6px;
+    font-size: 11px;
+}
+
+.ts_contact_name{
+    color: #45688e;
+    height: 30px;
+    padding: 2px 0 0 8px;
+    font-weight: bold;
+    position: relative;
+}
+
+.ts_contact_photo img{
+    width: 40px;
+    height: 40px;
+}
+
+.ts_content{
+    padding: 4px 0 4px 6px;
+    margin: 1px 0px 1px 0px;
+    height: 41px;
+    line-height: 100%;
+}
+
 
 .user-info-bar{
     position: relative;

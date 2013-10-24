@@ -13,4 +13,15 @@ use Doctrine\ORM\EntityRepository;
 class UserRepository extends EntityRepository
 {
 
+    public function findAllByPattern($pattern){
+        $em = $this->getEntityManager();
+        $query = $em->createQuery(
+            'select p
+            from OptimusUserBundle:User p
+            where p.username like :pattern'
+        )->setParameter('pattern','%'.$pattern.'%');
+
+        return $query->getResult();
+    }
+
 }

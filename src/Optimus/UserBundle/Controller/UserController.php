@@ -79,4 +79,12 @@ class UserController extends Controller{
 
     }
 
+    /**
+     * @Route("/test")
+     */
+    public function testAction(){
+        $ans = $this->get('UserService')->test();
+        return new Response($ans);
+    }
+
 }

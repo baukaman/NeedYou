@@ -17,4 +17,12 @@
         </service>
     </services>
     -->
+
+    <services>
+        <service id="UserService" class="Optimus\UserBundle\Services\UserService">
+            <argument type="service" id="service_container" />
+        </service>
+
+    </services>
+
 </container>

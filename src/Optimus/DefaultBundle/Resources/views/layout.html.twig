@@ -1,9 +1,12 @@
 
 <link rel="stylesheet" href="{{ asset( 'bundles/needyou/css/main.css' ) }}" />
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+{#<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>#}
+<script type="text/javascript" src="{{ asset('bundles/needyou/js/jquery-latest.min.js') }}"></script>
+
 <script type="text/javascript" src="{{ asset( 'bundles/needyou/js/main.js' ) }}" ></script>
 <script>
     var jau = jQuery.jAvatarUploadable();
+    var tss = jQuery.tsSearchable();
 </script>
 <body>
 
@@ -24,14 +27,16 @@
    </div>
     
 <div class="main-content">
-  <div class="info-bar">
-    <div class="name-bar">    
-      Bauyrzhan Makhambetov
-    </div>
-    <div class="status-bar">
-      Online
-    </div>
-  </div>
+   {% if app.user is not null %}
+      <div class="info-bar">
+        <div class="name-bar">
+          {{ app.user.username }}
+        </div>
+        <div class="status-bar">
+          Online
+        </div>
+      </div>
+    {% endif %}
     {% if app.user is null %}
        {% include 'OptimusDefaultBundle:Default:default.html.twig' %}
     {% else %}
@@ -39,12 +44,13 @@
       <div id="avatar-container" style="position: relative">
           <div class="avatar-im">
             {% if app.user is null or app.user.pic == "default" %}
+                <div style="position: absolute; left: 50px; top: 140px;"><a id="photo" class="hrefUnderlineOnHover" onclick="jau.toggleOverlay()">Сменить фото</a> </div>
                 <img src="{{asset('bundles/needyou/images/camera_a.gif')}}" style="height:15em; width:15em;">
             {% else %}
             <img src="{{app.user.pic}}" style="height:20em; width:15em;">
             {% endif %}
           </div>
-          <div style="position: absolute; left: 5em; top: 12em;"><a id="photo" class="hrefUnderlineOnHover" onclick="jau.toggleOverlay()">Сменить фото</a> </div>
+          
       </div>
       <div class="edit-profile">
         <a href="vk.com">Редактировать страницу</a>
