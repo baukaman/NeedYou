@@ -19,7 +19,7 @@ class UserRepository extends EntityRepository
             'select p
             from OptimusUserBundle:User p
             where p.username like :pattern'
-        )->setParameter('pattern','%'.$pattern.'%');
+        )->setMaxResults(4)->setParameter('pattern','%'.$pattern.'%');
 
         return $query->getResult();
     }

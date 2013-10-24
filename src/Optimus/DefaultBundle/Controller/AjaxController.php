@@ -29,7 +29,7 @@ class AjaxController extends Controller {
             $names[]=$user->getUsername();
             $photos[]=$user->getPic();
         }
-        $response = array("code"=>100,"success"=>"true","photos"=>$photos,"names"=>$names);
+        $response = array("code"=>100,"success"=>"true","photos"=>$photos,"names"=>$names,"names2"=>array('Baukaman'),"photos2"=>array());
         return new Response(json_encode($response));
     }
 

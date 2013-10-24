@@ -58,6 +58,9 @@
                         var users = response.names;
                         var photos = response.photos;
 
+                        var names2 = response.names2;
+                        var photos2 = response.photos2;
+
                         var t = '';
 
                         for(var i=0;i<photos.length;i++)
@@ -65,13 +68,19 @@
                             photos[i] = '/bundles/needyou/images/camera_a.gif';
 
                         for(var i=0;i<photos.length;i++){
-                        t = t+ '<a href=\"sdf\"><div  class=\"ts_content\" id=\"contact_'+i+'\" onmouseover = \"tss.isActive(this,this,this);\" onmouseout=\"tss.deselect(this)\">' +
+                        t = t+ '<a href=\"'+users[i]+'\"><div  class=\"ts_content\" id=\"contact_'+i+'\" onmouseover = \"tss.isActive(this,this,this);\" onmouseout=\"tss.deselect(this)\">' +
                             '<span class=\"ts_contact_photo fl_l\"><img src=\"'+photos[i]+'\" /></span>' +
                             '<span class=\"ts_contact_name fl_l\">'+users[i]+
                             '<div class=\"ts_contact_info\"> 26 лет, Алматы </div>'+
                             '</span></div></a>';
                         }
-                        $('#ts_content_wrap').html(t);
+
+                        if(users.length > 0 & names2.length>0)
+                          t= t + '<div id=\"ts_search_sep\">Результаты поиска</div>';
+
+                        $('#ts_content_list').html(t);
+                        $('#ts_content_guide').css('display','block');
+                        $('#ts_word').text(text);
                     },"json");
                     $("#ts_content_wrap").css('display','block');
                 }

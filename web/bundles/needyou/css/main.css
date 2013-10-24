@@ -76,6 +76,14 @@ h2{
     outline: 0;
 }
 
+#ts_search_sep{
+    padding: 1px 13px 1px;
+    color: #777;
+    border-top: 1px solid #e0e1e2;
+    border-bottom: 1px solid #e0e1e2;
+    background: #f0f0f0;
+}
+
 #ts_wrap{
     width: 170px;
     background-color: #FFFFFF;
