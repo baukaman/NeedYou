@@ -51,7 +51,7 @@
       </div>
       <div class="edit-prof-under">      
       </div>
-      <div id="counters-bar">
+      <div class="counters-bar">
         <div class="photos">
           <a href="vk.com">Фотографии со мной</a>
         </div>
@@ -62,11 +62,60 @@
           <a href="vk.com">Мои подписчики</a>
         </div>
       </div>
-    </div>
-      <div class="user-info-bar">
-        dsfs
+      <div class="friends-bar">
+        <div class="friends-bar-head">
+          <a href="vk.com">Друзья</a>
+        </div>
+        <div class="friends-bar-foot">
+          <span id="friends-counter">159 друзей</span>
+        </div>
+        <div class="friends-bar-imgs">
+          1 drug
+        </div>
       </div>
-
+    </div>
+    <div class="center-of-center">
+      <div class="user-info-bar">
+        <div class="name-univer">
+          <div class="name-center">
+              Bauyrzhan Makhambetov
+          </div>
+          <div class="name-univer-name">
+            КБТУ (KBTU) '12
+          </div>
+        </div>
+      </div>
+      <div class="server-cont">
+        {% block content %}
+        
+        {% endblock %}
+      </div>
+      <div class="hr">
+        <hr />
+      </div>
+      <div class="user-info-rows">
+        <label id="user-city">Родной город: <a href="vk.com">Жезказган</a></label>
+        <label id="user-bro">Братья, сестры: <a href="vk.com">No Name</a></label>
+      </div>
+      <div class="photo-frame">
+        <div id="photo-frame-head">
+          <label class="name-bar" id="photo-counter">51 фотография</label>
+          <label class="status-bar" id="photo-add">добавить фотографии</label>
+        </div>
+        <div class="photo-frame-cont">
+          images
+        </div>
+      </div>
+      <div class="wall-content">
+        <div id="photo-frame-head">
+          <label class="name-bar">959 записей</label>
+          <label class="status-bar">к записям Bauyrzhan</label>
+        </div>
+        <div class="wall-main-cont">
+          zdes budet chto-to
+        </div>
+      </div>
+    </div>
     {% endif %}
     {#<div>#}
 
@@ -83,10 +132,8 @@
     {#<p>Default </p><p>Default </p>#}
     {#<p>Default </p>#}
     {#</div>#}
-  {% block content %}
 
-    
-  {% endblock %}
+  </div>
  </div>
 </div>
 
