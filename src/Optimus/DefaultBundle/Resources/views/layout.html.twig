@@ -30,24 +30,24 @@
    {% if app.user is not null %}
       <div class="info-bar">
         <div class="name-bar">
-          {{ app.user.username }}
+          {{ user.username }}
         </div>
         <div class="status-bar">
           Online
         </div>
       </div>
     {% endif %}
-    {% if app.user is null %}
+    {% if user is not defined %}
        {% include 'OptimusDefaultBundle:Default:default.html.twig' %}
     {% else %}
     <div class="long-left-menu">
       <div id="avatar-container" style="position: relative">
           <div class="avatar-im">
-            {% if app.user is null or app.user.pic == "default" %}
+            {% if user is null or user.pic == "default" %}
                 <div style="position: absolute; left: 50px; top: 140px;"><a id="photo" class="hrefUnderlineOnHover" onclick="jau.toggleOverlay()">Сменить фото</a> </div>
                 <img src="{{asset('bundles/needyou/images/camera_a.gif')}}" style="height:15em; width:15em;">
             {% else %}
-            <img src="{{app.user.pic}}" style="height:20em; width:15em;">
+            <img src="{{user.pic}}" style="height:20em; width:15em;">
             {% endif %}
           </div>
           

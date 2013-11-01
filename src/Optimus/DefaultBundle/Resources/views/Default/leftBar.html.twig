@@ -1,11 +1,11 @@
 {% if is_granted('ROLE_USER') %}
 <div class="content">
    <ul>
-            <a href="#"><li><span id="lmenu">Страница</span></li></a>
-            <a href="#"><li><span id="lmenu">Сообщения</span></li></a>
-            <a href="#"><li><span id="lmenu">Фото</span></li></a>
-            <a href="#"><li><span id="lmenu">Друзья</span></li></a>
-            <a href="#"><li><span id="lmenu">Новости</span></li></a>
+            <a href="/{{ app.user.username }}"><li><span class="lmenu">Моя Страница</span></li></a>
+            <a href="#"><li><span class="lmenu">Сообщения</span></li></a>
+            <a href="#"><li><span class="lmenu">Фото</span></li></a>
+            <a href="#"><li><span class="lmenu">Друзья</span></li></a>
+            <a href="#"><li><span class="lmenu">Новости</span></li></a>
    <ul>
 </div>
 {% else %}

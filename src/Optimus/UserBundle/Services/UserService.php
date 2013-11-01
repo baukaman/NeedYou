@@ -26,12 +26,18 @@ class UserService {
         return 'Hello '.$str;
     }
 
-    public function findbyPattern($pattern){
+    public function friendsByPattern($pattern, $id){
         $em =  $this->container->get('Doctrine')->getManager()->getRepository('OptimusUserBundle:User');
-
-        $res = $em->findAllByPattern($pattern);
-
+        $res = $em->friendsByPattern($pattern,$id);
         return $res;
     }
+
+    public function notFriendsByPattern($pattern, $id){
+        $em =  $this->container->get('Doctrine')->getManager()->getRepository('OptimusUserBundle:User');
+        $res = $em->notFriendsByPattern($pattern,$id);
+        return $res;
+    }
+
+
 
 }

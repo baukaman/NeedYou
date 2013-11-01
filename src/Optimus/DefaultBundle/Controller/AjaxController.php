@@ -19,17 +19,31 @@ class AjaxController extends Controller {
 
     /**
      * @Route("/ts_work")
+     * @Template()
      */
     public function tsAction(){
+
         $txt = $this->get('request')->get('txt');
-        $users = $this->get('UserService')->findbyPattern($txt);
+        $users = $this->get('UserService')->friendsByPattern($txt,$this->getUser()->getId());
+        $users2 = $this->get('UserService')->notFriendsByPattern($txt,$this->getUser()->getId());
         $names = array();
         $photos = array();
+        $names2 = array();
+        $photos2 = array();
+
+
+
         foreach($users as $user){
             $names[]=$user->getUsername();
             $photos[]=$user->getPic();
         }
-        $response = array("code"=>100,"success"=>"true","photos"=>$photos,"names"=>$names,"names2"=>array('Baukaman'),"photos2"=>array());
+
+        foreach($users2 as $user){
+            $names2[]=$user->getUsername();
+            $photos2[]=$user->getPic();
+        }
+
+        $response = array("code"=>100,"success"=>"true","photos"=>$photos,"names"=>$names,"names2"=>$names2,"photos2"=>$photos2);
         return new Response(json_encode($response));
     }
 

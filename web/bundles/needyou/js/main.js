@@ -55,7 +55,7 @@
                 }
                 else{
                     $.post('/ts_work',{txt:text},function(response){
-                        var users = response.names;
+                        var names = response.names;
                         var photos = response.photos;
 
                         var names2 = response.names2;
@@ -67,16 +67,32 @@
                         if(photos[i]=='default')
                             photos[i] = '/bundles/needyou/images/camera_a.gif';
 
+                        for(var i=0;i<photos2.length;i++)
+                            if(photos2[i]=='default')
+                                photos2[i] = '/bundles/needyou/images/camera_a.gif';
+
+
+
                         for(var i=0;i<photos.length;i++){
-                        t = t+ '<a href=\"'+users[i]+'\"><div  class=\"ts_content\" id=\"contact_'+i+'\" onmouseover = \"tss.isActive(this,this,this);\" onmouseout=\"tss.deselect(this)\">' +
+                        t = t+ '<a href=\"'+names[i]+'\" class=\"ts_contact\"><div  class=\"ts_content\" id=\"contact_'+i+'\" onmouseover = \"tss.isActive(this,this,this);\" onmouseout=\"tss.deselect(this)\">' +
                             '<span class=\"ts_contact_photo fl_l\"><img src=\"'+photos[i]+'\" /></span>' +
-                            '<span class=\"ts_contact_name fl_l\">'+users[i]+
+                            '<span class=\"ts_contact_name fl_l\">'+names[i]+
                             '<div class=\"ts_contact_info\"> 26 лет, Алматы </div>'+
                             '</span></div></a>';
                         }
 
-                        if(users.length > 0 & names2.length>0)
+                        if(names.length > 0 & names2.length>0)
                           t= t + '<div id=\"ts_search_sep\">Результаты поиска</div>';
+
+                        var offset = names.length;
+
+                        for(var i=0;i<photos2.length;i++){
+                            t = t+ '<a href=\"'+names2[i]+'\" class=\"ts_contact\"><div  class=\"ts_content\" id=\"contact_'+i+offset+'\" onmouseover = \"tss.isActive(this,this,this);\" onmouseout=\"tss.deselect(this)\">' +
+                                '<span class=\"ts_contact_photo fl_l\"><img src=\"'+photos2[i]+'\" /></span>' +
+                                '<span class=\"ts_contact_name fl_l\">'+names2[i]+
+                                '<div class=\"ts_contact_info\"> 26 лет, Алматы </div>'+
+                                '</span></div></a>';
+                        }
 
                         $('#ts_content_list').html(t);
                         $('#ts_content_guide').css('display','block');

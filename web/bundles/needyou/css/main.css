@@ -107,13 +107,7 @@ h2{
     color: #AAB7C5; 
     width: 37em;    
 }
-/*a{color: #2B587A;text-decoration: none;}
-a:hover {text-decoration: none;}
 
-a.button{cursor: pointer;color: #ffffff;line-height: 14px;font-family: Arial, Helvetica, sans-serif;font-size: 14px;font-weight: bold;	background: #3F3F3F;border:1px solid #ffffff; -webkit-border-radius: 4px;-moz-border-radius: 4px;-khtml-border-radius: 4px;border-radius: 4px;}
-a.button {	display: inline-block;	text-decoration: none;	padding: 6px 12px 6px 12px;}
-a.button:hover{background:#717375;}
-*/
 .active{
     background: none repeat scroll 0 0 rgba(219,227,235,0.5);
 }
@@ -272,6 +266,10 @@ display: none;
     font-style: normal;
 }
 
+.lmenu{
+    font-size: 11px;
+}
+
 .long-left-menu{
     position: relative;
     width: 16em;
@@ -412,6 +410,10 @@ display: none;
     height: 20px;
     left: 2em;
     top: 0.3em;
+}
+
+.ts_contact{
+    text-decoration: none;
 }
 
 .ts_contact_info{

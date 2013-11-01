@@ -24,4 +24,27 @@ class UserRepository extends EntityRepository
         return $query->getResult();
     }
 
+    public function friendsByPattern($pattern, $id){
+        $em = $this->getEntityManager();
+        $query = $em->createQuery(
+          'select p from OptimusUserBundle:User p where p.id in (
+                       select c.id from OptimusUserBundle:User u join u.friends c where u.id=:id and c.username like :pattern
+           )'
+        )->setParameter('id',$id)->setParameter('pattern','%'.$pattern.'%')->setMaxResults(4);
+
+        return $query->getResult();
+    }
+
+    public function notFriendsByPattern($pattern, $id){
+
+        $em = $this->getEntityManager();
+        $query = $em->createQuery(
+            'select p from OptimusUserBundle:User p where p.id not in (
+                         select c.id from OptimusUserBundle:User u join u.friends c where u.id=:id
+             ) and p.username like :pattern'
+        )->setParameter('id',$id)->setParameter('pattern','%'.$pattern.'%')->setMaxResults(4);
+
+        return $query->getResult();
+    }
+
 }
